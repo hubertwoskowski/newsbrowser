@@ -1,6 +1,11 @@
 <div class="browser">
-  <div class="tiles_container">
-    <app-article-tile *ngFor="let article of news.articles" [article]="article">
-    </app-article-tile>
+  <div class="browser__tiles" *ngIf="news">
+    <div class="browser__header"><span class="browser__title">Przeglądarka newsów</span></div>
+    <div class="browser__tiles-container">
+      <app-article-tile *ngFor="let article of news.articles" [article]="article">
+      </app-article-tile>
+    </div>
   </div>
 </div>
+<app-low-resolution-message></app-low-resolution-message>
+<a class="powered-by" href="https://newsapi.org/">Powered by News API</a>
