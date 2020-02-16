@@ -13,6 +13,10 @@
 
     <artifactId>backend</artifactId>
 
+    <properties>
+        <io.springfox.version>2.9.2</io.springfox.version>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -48,6 +52,34 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.github.kongchen</groupId>
+                <artifactId>swagger-maven-plugin</artifactId>
+                <version>3.1.8</version>
+                <configuration>
+                    <apiSources>
+                        <apiSource>
+                            <springmvc>false</springmvc>
+                            <locations>
+                                <location>pl.hw.newsbrowser.controller</location>
+                            </locations>
+                            <info>
+                                <title>News browser API</title>
+                                <version>v1.0</version>
+                            </info>
+                            <outputFormats>yaml</outputFormats>
+                            <swaggerDirectory>${project.build.directory}/generated/openApi</swaggerDirectory>
+                        </apiSource>
+                    </apiSources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -60,6 +92,22 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${io.springfox.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${io.springfox.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.1.1</version>
         </dependency>
 
         <!-- Tests -->

@@ -9,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * Klasa konfigurująca
+ */
 @Configuration
 public class WebApplicationConfig implements WebMvcConfigurer {
 
