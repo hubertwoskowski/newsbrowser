@@ -6,6 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Source {
-    private Source id;
+    private String id;
     private String name;
 }

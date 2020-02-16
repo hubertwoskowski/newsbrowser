@@ -1,5 +1,6 @@
 package pl.hw.newsbrowser.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,13 +15,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class NewsService {
+
+    private final RestTemplate restTemplate;
 
     @Value("${news.apiKey}")
     private String apiKey;
 
+    public NewsService(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
     public NewsDTO getNews(String country, String category) {
-        RestTemplate restTemplate = new RestTemplate();
         String path = UriComponentsBuilder.fromPath("/v2/top-headlines")
                 .scheme("https")
                 .host("newsapi.org")
@@ -28,6 +35,8 @@ public class NewsService {
                 .queryParam("category", category)
                 .queryParam("apiKey", apiKey)
                 .toUriString();
+
+        log.debug(path);
 
         ResponseEntity<TopHeadlines> topHeadlinesResponse = restTemplate.getForEntity(path, TopHeadlines.class);
 
@@ -40,7 +49,7 @@ public class NewsService {
                 .build();
     }
 
-    private List<ArticleDTO> convertArticles(List<Article> articles) {
+    private static List<ArticleDTO> convertArticles(List<Article> articles) {
         return articles.stream()
                 .map(article -> ArticleDTO.builder()
                         .articleUrl(article.getUrl())
