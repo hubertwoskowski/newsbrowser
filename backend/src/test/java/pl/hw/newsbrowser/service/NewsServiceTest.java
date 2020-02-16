@@ -6,9 +6,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
 import pl.hw.newsbrowser.dto.ArticleDTO;
 import pl.hw.newsbrowser.dto.NewsDTO;
 import pl.hw.newsbrowser.model.Article;
@@ -23,21 +20,21 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class NewsServiceTest {
 
-    private final static String COUNTRY = "pl";
-    private final static String CATEGORY = "technology";
+    private static final String COUNTRY = "pl";
+    private static final String CATEGORY = "technology";
 
     @InjectMocks
     private NewsService newsService;
 
     @Mock
-    private RestTemplate restTemplate;
+    private NewsApiClientService newsApiClientService;
 
     @Test
     public void getNewsTest() {
         TopHeadlines topHeadlines = getTopHeadlines();
 
-        when(restTemplate.getForEntity(Mockito.anyString(), Mockito.eq(TopHeadlines.class)))
-                .thenReturn(new ResponseEntity(topHeadlines, HttpStatus.OK));
+        when(newsApiClientService.getTopHeadlines(Mockito.eq(COUNTRY), Mockito.eq(CATEGORY)))
+                .thenReturn(topHeadlines);
 
         NewsDTO newsDTO = newsService.getNews(COUNTRY, CATEGORY);
 
