@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
-import { ErrorModalComponent } from './error-modal.component';
+import {ErrorModalComponent} from './error-modal.component';
 
 describe('ErrorModalComponent', () => {
   let component: ErrorModalComponent;
@@ -8,9 +9,10 @@ describe('ErrorModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ErrorModalComponent ]
+      declarations: [ErrorModalComponent],
+      providers: [NgbActiveModal]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

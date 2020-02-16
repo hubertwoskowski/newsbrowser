@@ -1,5 +1,8 @@
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
+import {ArticleTileComponent} from '../article-tile/article-tile.component';
+import {LowResolutionMessageComponent} from '../low-resolution-message/low-resolution-message.component';
 import {NewsBrowserComponent} from './news-browser.component';
 
 describe('NewsBrowserComponent', () => {
@@ -8,7 +11,14 @@ describe('NewsBrowserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [NewsBrowserComponent]
+      declarations: [
+        NewsBrowserComponent,
+        ArticleTileComponent,
+        LowResolutionMessageComponent
+      ],
+      imports: [
+        HttpClientTestingModule
+      ]
     })
       .compileComponents();
   }));

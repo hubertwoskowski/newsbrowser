@@ -1,3 +1,5 @@
+@import 'variables';
+
 .browser {
   display: flex;
   justify-content: space-around;
@@ -7,18 +9,18 @@
     flex-direction: column;
     justify-content: space-around;
     max-width: 1100px;
-    border: 1px solid var(--dark-grey);
+    border: 1px solid $dark-grey;
   }
 
   & &__header {
     display: flex;
-    color: var(--white);
-    background-color: var(--vivid-blue);
+    color: $white;
+    background-color: $vivid-blue;
     text-indent: 30px;
     font-size: 26px;
     font-weight: 700;
     justify-content: flex-start;
-    text-shadow: 1px 1px 3px var(--dark-grey);
+    text-shadow: 1px 1px 3px $dark-grey;
   }
 
   & &__title {
@@ -41,7 +43,7 @@
 .powered-by{
   font-size: 10px;
   margin-left: 45%;
-  color: var(--dark-grey);
+  color: $dark-grey;
   text-decoration: none;
 }
 

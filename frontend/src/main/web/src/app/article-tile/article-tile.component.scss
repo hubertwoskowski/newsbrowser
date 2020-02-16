@@ -1,23 +1,23 @@
 @import 'variables';
 
 .tile {
-  background-color: var(--light-blue);
-  border: 1px solid var(--light-grey);
+  background-color: $light-blue;
+  border: 1px solid $light-grey;
   height: 100%;
   width: 100%;
   display: flex;
   flex-flow: column;
   overflow: hidden;
-  box-shadow: 0 1px 5px 0 rgba(var(--dark-grey-shadow), 0.4), 0 1px 5px 0 rgba(var(--dark-grey-shadow), 0.4);
+  box-shadow: 0 1px 5px 0 rgba($dark-grey, 0.4), 0 1px 5px 0 rgba($dark-grey, 0.4);
 
   &:focus {
-    box-shadow: 0 1px 5px 0 rgba(var(--dark-grey-shadow), 0.9), 0 1px 5px 0 rgba(var(--dark-grey-shadow), 0.4);
+    box-shadow: 0 1px 5px 0 rgba($dark-grey, 0.9), 0 1px 5px 0 rgba($dark-grey, 0.4);
   }
 
   & &__header {
     display: flex;
     flex: 0 1 auto;
-    color: var(--dark-grey);
+    color: $dark-grey;
     margin-top: 15px;
     margin-left: 15px;
     margin-right: 15px;
@@ -37,7 +37,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    color: var(--light-grey);
+    color: $light-grey;
     margin: 10px 15px 0px;
     white-space: nowrap;
     overflow: hidden;
@@ -45,7 +45,7 @@
   }
 
   & &__articleUrl {
-    color: var(--consdata-red);
+    color: $consdata-red;
     align-self: flex-end;
     margin-right: 15px;
     margin-bottom: 15px;
@@ -69,7 +69,7 @@
     overflow: hidden !important;
     text-overflow: ellipsis;
     margin-left: 10px;
-    color: var(--dark-grey);
+    color: $dark-grey;
     display: block;
     max-width: 100%;
     font-size: 16px;

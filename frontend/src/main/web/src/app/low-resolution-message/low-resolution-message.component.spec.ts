@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LowResolutionMessageComponent } from './low-resolution-message.component';
+import {LowResolutionMessageComponent} from './low-resolution-message.component';
 
 describe('LowResolutionMessageComponent', () => {
   let component: LowResolutionMessageComponent;
@@ -8,9 +8,9 @@ describe('LowResolutionMessageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LowResolutionMessageComponent ]
+      declarations: [LowResolutionMessageComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
