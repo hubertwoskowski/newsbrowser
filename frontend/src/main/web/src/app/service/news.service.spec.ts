@@ -12,6 +12,6 @@ describe('NewsService', () => {
 
   it('should be created', () => {
     const service: NewsService = TestBed.get(NewsService);
-    expect(service).toBeTruthy();
+    expect(service.getNews('pl', 'category')).toBeTruthy();
   });
 });
